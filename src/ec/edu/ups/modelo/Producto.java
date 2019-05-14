@@ -13,32 +13,27 @@ import java.util.Objects;
  * @author erics
  */
 public class Producto {
-    private int codigo;
+    private int codigoProducto;
     private String nombre;
-    private String descripcion;
-    private Date fechacaducidad;
     private double precio;
-    private Date fechaelaboracion;
+    private String detalle; 
 
-    public Producto(int codigo, String nombre, String descripcion, Date fechacaducidad, double precio, Date fechaelaboracion) {
-        this.codigo = codigo;
+    public Producto() {
+    }
+
+    public Producto(int codigo, String nombre, int precio, String marca, String detalle) {
+        this.codigoProducto = codigo;
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechacaducidad = fechacaducidad;
         this.precio = precio;
-        this.fechaelaboracion = fechaelaboracion;
-    }
-    
-
-    
-    
-
-    public int getCodigo() {
-        return codigo;
+        this.detalle = detalle;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public int getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public void setCodigoProducto(int codigo) {
+        this.codigoProducto = codigo;
     }
 
     public String getNombre() {
@@ -49,22 +44,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Date getFechacaducidad() {
-        return fechacaducidad;
-    }
-
-    public void setFechacaducidad(Date fechacaducidad) {
-        this.fechacaducidad = fechacaducidad;
-    }
-
     public double getPrecio() {
         return precio;
     }
@@ -73,28 +52,20 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Date getFechaelaboracion() {
-        return fechaelaboracion;
+    public String getDetalle() {
+        return detalle;
     }
 
-    public void setFechaelaboracion(Date fechaelaboracion) {
-        this.fechaelaboracion = fechaelaboracion;
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
-    @Override
-    public String toString() {
-        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechacaducidad=" + fechacaducidad + ", precio=" + precio + ", fechaelaboracion=" + fechaelaboracion + '}';
-    }
+
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + this.codigo;
-        hash = 53 * hash + Objects.hashCode(this.nombre);
-        hash = 53 * hash + Objects.hashCode(this.descripcion);
-        hash = 53 * hash + Objects.hashCode(this.fechacaducidad);
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
-        hash = 53 * hash + Objects.hashCode(this.fechaelaboracion);
+        int hash = 3;
+        hash = 41 * hash + this.codigoProducto;
         return hash;
     }
 
@@ -110,30 +81,14 @@ public class Producto {
             return false;
         }
         final Producto other = (Producto) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.precio) != Double.doubleToLongBits(other.precio)) {
+        if (this.codigoProducto != other.codigoProducto) {
             return false;
         }
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.descripcion, other.descripcion)) {
-            return false;
-        }
-        if (!Objects.equals(this.fechacaducidad, other.fechacaducidad)) {
-            return false;
-        }
-        if (!Objects.equals(this.fechaelaboracion, other.fechaelaboracion)) {
-            return false;
-        }
         return true;
     }
-    
-
-   
-    
     
     
 }

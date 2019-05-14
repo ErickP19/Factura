@@ -15,57 +15,54 @@ import java.util.Set;
  * @author erics
  */
 public class ControladorProducto {
-     private Set<Producto> lista;
+       private Set<Producto> lista;
     private int codigo;
-    public ControladorProducto() {
-        lista = new HashSet<>();
-        codigo=0;
-    }
 
     public int getCodigo() {
-        return ++codigo;
+        return codigo;
     }
-      
-    //crear un num=evo objeto en la lista
-    public void create(Producto objeto){
-        codigo ++;
-        objeto.setCodigo(codigo);
-        lista.add(objeto);
+    
+    public ControladorProducto() {
+        lista = new HashSet<>();
+        codigo = 1;
     }
-        
-    //leer un objeto en la lista por medio del codigo
+    
+    public void create(Producto producto){
+        producto.setCodigoProducto(codigo);
+        codigo++;
+        lista.add(producto);
+    }
+    
     public Producto read(int codigo){
-        for (Producto entre : lista) {
-            if (entre.getCodigo() == codigo) {
-                return entre;
+        for (Producto producto : lista) {
+            if(producto.getCodigoProducto()== codigo){
+                return producto;
             }
         }
         return null;
     }
     
-    //modificar un objeto en la lista por medio del codigo
-    public void update(Producto objeto){
-        if(lista.contains(objeto)){
-            lista.remove(objeto);
-            lista.add(objeto);
+    public void update(Producto producto){
+        if(lista.contains(producto)){
+            lista.remove(producto);
+            lista.add(producto);
         }
     }
     
-    //eliminar un objeto por medio del codigo
     public void delete(int codigo){
-        for (Producto entre : lista) {
-            if (entre.getCodigo() == codigo){
-                lista.remove(entre);
+        for (Producto producto : lista) {
+            if(producto.getCodigoProducto()== codigo){
+                lista.remove(producto);
                 break;
             }
         }
     }
     
-    //imprime todos los objetos de la lista
-    public void print(){
-        for (Producto entre : lista) {
-            System.out.println(entre.getNombre());
+    public void imprimir(){
+        for (Producto producto : lista) {
+            System.out.println(producto.getNombre());
         }
     }
+    
     
 }
