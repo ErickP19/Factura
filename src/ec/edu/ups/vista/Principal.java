@@ -39,6 +39,10 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -47,6 +51,29 @@ public class Principal extends javax.swing.JFrame {
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        fileMenu1 = new javax.swing.JMenu();
+        openMenuItem1 = new javax.swing.JMenuItem();
+        saveMenuItem1 = new javax.swing.JMenuItem();
+        saveAsMenuItem1 = new javax.swing.JMenuItem();
+        exitMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        fileMenu2 = new javax.swing.JMenu();
+        openMenuItem2 = new javax.swing.JMenuItem();
+        saveMenuItem2 = new javax.swing.JMenuItem();
+        saveAsMenuItem2 = new javax.swing.JMenuItem();
+        exitMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +131,129 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
+        fileMenu1.setMnemonic('f');
+        fileMenu1.setText("Factura");
+
+        openMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        openMenuItem1.setMnemonic('o');
+        openMenuItem1.setText("Create");
+        openMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItem1ActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(openMenuItem1);
+
+        saveMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem1.setMnemonic('s');
+        saveMenuItem1.setText("Update");
+        saveMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItem1ActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(saveMenuItem1);
+
+        saveAsMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        saveAsMenuItem1.setMnemonic('a');
+        saveAsMenuItem1.setText("Read");
+        saveAsMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItem1ActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(saveAsMenuItem1);
+
+        exitMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem1.setMnemonic('x');
+        exitMenuItem1.setText("Delete");
+        exitMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItem1ActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(exitMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("List");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(jMenuItem2);
+
+        menuBar.add(fileMenu1);
+
+        fileMenu2.setMnemonic('f');
+        fileMenu2.setText("Producto");
+
+        openMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        openMenuItem2.setMnemonic('o');
+        openMenuItem2.setText("Create");
+        openMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(openMenuItem2);
+
+        saveMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem2.setMnemonic('s');
+        saveMenuItem2.setText("Update");
+        saveMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(saveMenuItem2);
+
+        saveAsMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        saveAsMenuItem2.setMnemonic('a');
+        saveAsMenuItem2.setText("Read");
+        saveAsMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(saveAsMenuItem2);
+
+        exitMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem2.setMnemonic('x');
+        exitMenuItem2.setText("Delete");
+        exitMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(exitMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("List");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(jMenuItem3);
+
+        menuBar.add(fileMenu2);
+
+        jMenu1.setText("Idioma");
+
+        jMenuItem5.setText("Ingle");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("jMenuItem6");
+        jMenu1.add(jMenuItem6);
+
+        menuBar.add(jMenu1);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,6 +304,50 @@ public class Principal extends javax.swing.JFrame {
        desktopPane.add(l);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void openMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_openMenuItem1ActionPerformed
+
+    private void saveMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveMenuItem1ActionPerformed
+
+    private void saveAsMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveAsMenuItem1ActionPerformed
+
+    private void exitMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void openMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_openMenuItem2ActionPerformed
+
+    private void saveMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveMenuItem2ActionPerformed
+
+    private void saveAsMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveAsMenuItem2ActionPerformed
+
+    private void exitMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -192,12 +386,31 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenuItem exitMenuItem1;
+    private javax.swing.JMenuItem exitMenuItem2;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu fileMenu1;
+    private javax.swing.JMenu fileMenu2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem openMenuItem1;
+    private javax.swing.JMenuItem openMenuItem2;
     private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem saveAsMenuItem1;
+    private javax.swing.JMenuItem saveAsMenuItem2;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenuItem saveMenuItem1;
+    private javax.swing.JMenuItem saveMenuItem2;
     // End of variables declaration//GEN-END:variables
 
 }
