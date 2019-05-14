@@ -135,14 +135,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
         // TODO add your handling code here:
-        Read crear = new Read();
+        Read crear = new Read(controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
-        Udate crear = new Udate();
+        Udate crear = new Udate( controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_saveMenuItemActionPerformed
