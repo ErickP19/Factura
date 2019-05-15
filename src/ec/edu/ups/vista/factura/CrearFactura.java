@@ -1,4 +1,4 @@
-package ec.edu.ups.vista.varios;
+package ec.edu.ups.vista.factura;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

@@ -5,17 +5,18 @@
  */
 package ec.edu.ups.vista;
 
-import ec.edu.ups.vista.varios.CrearFactura;
-import ec.edu.ups.vista.varios.List;
-import ec.edu.ups.vista.varios.Udate;
-import ec.edu.ups.vista.varios.Read;
-import ec.edu.ups.vista.varios.Delete;
-import ec.edu.ups.vista.varios.Crear;
+import ec.edu.ups.vista.factura.CrearFactura;
+import ec.edu.ups.vista.cliente.List;
+import ec.edu.ups.vista.cliente.Udate;
+import ec.edu.ups.vista.cliente.Read;
+import ec.edu.ups.vista.cliente.Delete;
+import ec.edu.ups.vista.cliente.Crear;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
+import ec.edu.ups.vista.producto.CrearProducto;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -336,6 +337,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void crearproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearproductoActionPerformed
         // TODO add your handling code here:
+       CrearProducto l = new CrearProducto(controladorProducto);
+       l.setVisible(true);
+       desktopPane.add(l);
     }//GEN-LAST:event_crearproductoActionPerformed
 
     private void modificarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproductoActionPerformed
