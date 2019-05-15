@@ -17,6 +17,7 @@ import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.vista.producto.CrearProducto;
+import ec.edu.ups.vista.producto.EliminarProducto;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -71,15 +72,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        menuproducto = new javax.swing.JMenu();
-        crearproducto = new javax.swing.JMenuItem();
-        modificarproducto = new javax.swing.JMenuItem();
-        buscarproducto = new javax.swing.JMenuItem();
-        eliminarproducto = new javax.swing.JMenuItem();
-        listarproducto = new javax.swing.JMenuItem();
-        menuidioma = new javax.swing.JMenu();
-        ingles = new javax.swing.JMenuItem();
-        español = new javax.swing.JMenuItem();
         clientemenu = new javax.swing.JMenu();
         crearcliente = new javax.swing.JMenuItem();
         modificarcliente = new javax.swing.JMenuItem();
@@ -92,6 +84,15 @@ public class Principal extends javax.swing.JFrame {
         buscarfactura = new javax.swing.JMenuItem();
         eliminarfactura = new javax.swing.JMenuItem();
         listarfactura = new javax.swing.JMenuItem();
+        menuproducto = new javax.swing.JMenu();
+        crearproducto = new javax.swing.JMenuItem();
+        modificarproducto = new javax.swing.JMenuItem();
+        buscarproducto = new javax.swing.JMenuItem();
+        eliminarproducto = new javax.swing.JMenuItem();
+        listarproducto = new javax.swing.JMenuItem();
+        menuidioma = new javax.swing.JMenu();
+        ingles = new javax.swing.JMenuItem();
+        español = new javax.swing.JMenuItem();
 
         jMenu2.setText("File");
         jMenuBar1.add(jMenu2);
@@ -102,80 +103,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        menuproducto.setMnemonic('f');
-        menuproducto.setText("Producto");
-
-        crearproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        crearproducto.setMnemonic('o');
-        crearproducto.setText("Create");
-        crearproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(crearproducto);
-
-        modificarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        modificarproducto.setMnemonic('s');
-        modificarproducto.setText("Update");
-        modificarproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(modificarproducto);
-
-        buscarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        buscarproducto.setMnemonic('a');
-        buscarproducto.setText("Read");
-        buscarproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(buscarproducto);
-
-        eliminarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        eliminarproducto.setMnemonic('x');
-        eliminarproducto.setText("Delete");
-        eliminarproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(eliminarproducto);
-
-        listarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        listarproducto.setText("List");
-        listarproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(listarproducto);
-
-        menuBar.add(menuproducto);
-
-        menuidioma.setText("Idioma");
-
-        ingles.setText("Ingles");
-        ingles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inglesActionPerformed(evt);
-            }
-        });
-        menuidioma.add(ingles);
-
-        español.setText("Español");
-        español.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                españolActionPerformed(evt);
-            }
-        });
-        menuidioma.add(español);
-
-        menuBar.add(menuidioma);
 
         clientemenu.setMnemonic('f');
         clientemenu.setText("Cliente");
@@ -285,6 +212,80 @@ public class Principal extends javax.swing.JFrame {
 
         menuBar.add(menufactura);
 
+        menuproducto.setMnemonic('f');
+        menuproducto.setText("Producto");
+
+        crearproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        crearproducto.setMnemonic('o');
+        crearproducto.setText("Create");
+        crearproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(crearproducto);
+
+        modificarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        modificarproducto.setMnemonic('s');
+        modificarproducto.setText("Update");
+        modificarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(modificarproducto);
+
+        buscarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        buscarproducto.setMnemonic('a');
+        buscarproducto.setText("Read");
+        buscarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(buscarproducto);
+
+        eliminarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        eliminarproducto.setMnemonic('x');
+        eliminarproducto.setText("Delete");
+        eliminarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(eliminarproducto);
+
+        listarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        listarproducto.setText("List");
+        listarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(listarproducto);
+
+        menuBar.add(menuproducto);
+
+        menuidioma.setText("Idioma");
+
+        ingles.setText("Ingles");
+        ingles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inglesActionPerformed(evt);
+            }
+        });
+        menuidioma.add(ingles);
+
+        español.setText("Español");
+        español.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                españolActionPerformed(evt);
+            }
+        });
+        menuidioma.add(español);
+
+        menuBar.add(menuidioma);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,7 +296,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
         );
 
         pack();
@@ -352,6 +353,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void eliminarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarproductoActionPerformed
         // TODO add your handling code here:
+         EliminarProducto crear = new EliminarProducto(controladorProducto);
+        crear.setVisible(true);
+        desktopPane.add(crear);
     }//GEN-LAST:event_eliminarproductoActionPerformed
 
     private void listarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarproductoActionPerformed
