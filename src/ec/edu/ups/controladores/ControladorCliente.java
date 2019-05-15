@@ -42,7 +42,8 @@ public class ControladorCliente {
         }
         return null;
     }
-     public Cliente readCedula(String cedula){
+    /*
+    public Cliente readCedula(String cedula){
         for (Cliente cliente : lista) {
             if(cliente.getCedula().equals(cedula)){
                 return cliente;
@@ -50,6 +51,7 @@ public class ControladorCliente {
         }
         return null;
     }
+     */
     
     public void update(Cliente cliente){
         if(lista.contains(cliente)){
@@ -76,5 +78,13 @@ public class ControladorCliente {
     public Set<Cliente> getLista(){
         return lista;
         
+    }
+    public Cliente read1(String ced){
+        for (Cliente cliC : lista) {
+            if(cliC.getCedula() == ced){
+                return cliC;
+            }
+        }
+        return null;
     }
 }
