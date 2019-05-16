@@ -13,14 +13,14 @@ import javax.swing.JOptionPane;
  *
  * @author erics
  */
-public class Crear extends javax.swing.JInternalFrame {
+public class CrearCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Crear
      */
     private ControladorCliente controladorCliente;
     
-    public Crear(ControladorCliente ControladorCliente) {
+    public CrearCliente(ControladorCliente ControladorCliente) {
        initComponents();
        this.controladorCliente=ControladorCliente;
        txtcodigo.setText(Integer.toString(this.controladorCliente.getCodigo()));

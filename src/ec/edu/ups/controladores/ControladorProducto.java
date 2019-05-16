@@ -63,6 +63,11 @@ public class ControladorProducto {
             System.out.println(producto.getNombre());
         }
     }
+    public Set<Producto> getLista() {
+
+        return lista;
+
+    }
     
     
 }

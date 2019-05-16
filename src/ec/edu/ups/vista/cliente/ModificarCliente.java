@@ -7,19 +7,20 @@ package ec.edu.ups.vista.cliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author erics
  */
-public class Udate extends javax.swing.JInternalFrame {
+public class ModificarCliente extends javax.swing.JInternalFrame {
 
     
     private ControladorCliente controladorCliente;
     /**
      * Creates new form Udate
      */
-    public Udate(ControladorCliente controladorCliente) {
+    public ModificarCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente = controladorCliente;
     }
@@ -177,10 +178,9 @@ public class Udate extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int codigo = Integer.parseInt(txtcodigo.getText());
-        Cliente cliente = controladorCliente.read(codigo);
+        String cedula = txtcedula.getText();
+        Cliente cliente = controladorCliente.read1(cedula);
         txtnombre.setText(cliente.getNombre());
-        txtcedula.setText(cliente.getCedula());
         txtdireccion.setText(cliente.getDireccion());
         txttelefono.setText(cliente.getTelefono());
 
@@ -191,11 +191,12 @@ public class Udate extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         // TODO add your handling code here: 
         Cliente cliente = new Cliente();
-        cliente.setCodigo(Integer.parseInt(txtcodigo.getText()));
-        cliente.setNombre(txtnombre.getText());
         cliente.setCedula(txtcedula.getText());
+        cliente.setCodigo(controladorCliente.read1(txtcedula.getText()).getCodigo());
+        cliente.setNombre(txtnombre.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
         controladorCliente.update(cliente);
@@ -203,6 +204,7 @@ public class Udate extends javax.swing.JInternalFrame {
         txtcedula.setText("");
         txtdireccion.setText("");
         txttelefono.setText("");
+        JOptionPane.showMessageDialog(this, "Cliente Actualizado exitosamente", "Actualizar cliente", JOptionPane.OK_OPTION);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

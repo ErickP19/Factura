@@ -46,6 +46,8 @@ public class CrearProducto extends javax.swing.JInternalFrame {
         txtcodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Tekton Pro Cond", 2, 60)); // NOI18N
         jLabel1.setText("Producto");
 

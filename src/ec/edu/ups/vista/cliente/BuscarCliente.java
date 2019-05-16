@@ -13,13 +13,13 @@ import ec.edu.ups.modelo.Cliente;
  *
  * @author erics
  */
-public class Read extends javax.swing.JInternalFrame {
+public class BuscarCliente extends javax.swing.JInternalFrame {
 
      private ControladorCliente controladorCliente;
     /**
      * Creates new form Read
      */
-    public Read(ControladorCliente controladorCliente) {
+    public BuscarCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente = controladorCliente;
     }

@@ -6,18 +6,21 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.vista.factura.CrearFactura;
-import ec.edu.ups.vista.cliente.List;
-import ec.edu.ups.vista.cliente.Udate;
-import ec.edu.ups.vista.cliente.Read;
-import ec.edu.ups.vista.cliente.Delete;
-import ec.edu.ups.vista.cliente.Crear;
+import ec.edu.ups.vista.cliente.ListarCLiente;
+import ec.edu.ups.vista.cliente.ModificarCliente;
+import ec.edu.ups.vista.cliente.BuscarCliente;
+import ec.edu.ups.vista.cliente.EliminarCliente;
+import ec.edu.ups.vista.cliente.CrearCliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
+import ec.edu.ups.vista.producto.BuscarProducto;
 import ec.edu.ups.vista.producto.CrearProducto;
 import ec.edu.ups.vista.producto.EliminarProducto;
+import ec.edu.ups.vista.producto.ListarProducto;
+import ec.edu.ups.vista.producto.ModificarProducto;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -303,35 +306,35 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarclienteActionPerformed
-        Delete crear = new Delete();
+        EliminarCliente crear = new EliminarCliente();
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_eliminarclienteActionPerformed
 
     private void crearclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearclienteActionPerformed
         // TODO add your handling code here:
-        Crear crear = new Crear(controladorCliente);
+        CrearCliente crear = new CrearCliente(controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_crearclienteActionPerformed
 
     private void buscarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarclienteActionPerformed
         // TODO add your handling code here:
-        Read crear = new Read(controladorCliente);
+        BuscarCliente crear = new BuscarCliente(controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_buscarclienteActionPerformed
 
     private void modificarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarclienteActionPerformed
         // TODO add your handling code here:
-        Udate crear = new Udate( controladorCliente);
+        ModificarCliente crear = new ModificarCliente( controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_modificarclienteActionPerformed
 
     private void listarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarclienteActionPerformed
         // TODO add your handling code here:
-       List l = new List(controladorCliente);
+       ListarCLiente l = new ListarCLiente(controladorCliente);
        l.setVisible(true);
        desktopPane.add(l);
     }//GEN-LAST:event_listarclienteActionPerformed
@@ -345,10 +348,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void modificarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproductoActionPerformed
         // TODO add your handling code here:
+        ModificarProducto mo = new ModificarProducto(controladorProducto);
+        mo.setVisible(true);
+        desktopPane.add(mo);
     }//GEN-LAST:event_modificarproductoActionPerformed
 
     private void buscarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarproductoActionPerformed
         // TODO add your handling code here:
+        BuscarProducto b = new BuscarProducto(controladorProducto);
+        b.setVisible(true);
+        desktopPane.add(b);
     }//GEN-LAST:event_buscarproductoActionPerformed
 
     private void eliminarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarproductoActionPerformed
@@ -360,6 +369,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void listarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarproductoActionPerformed
         // TODO add your handling code here:
+        ListarProducto l = new ListarProducto(controladorProducto);
+        l.setVisible(true);
+        desktopPane.add(l);
     }//GEN-LAST:event_listarproductoActionPerformed
 
     private void inglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesActionPerformed
@@ -388,14 +400,18 @@ public class Principal extends javax.swing.JFrame {
 
     private void modificarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarfacturaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_modificarfacturaActionPerformed
 
     private void buscarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarfacturaActionPerformed
         // TODO add your handling code here:
+        
+ 
     }//GEN-LAST:event_buscarfacturaActionPerformed
 
     private void eliminarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfacturaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_eliminarfacturaActionPerformed
 
     private void listarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarfacturaActionPerformed
