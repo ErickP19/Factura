@@ -19,7 +19,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form Eliminar
      */
-    public EliminarCliente() {
+    public EliminarCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente = controladorCliente;
     }
@@ -51,7 +51,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         lblCedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
         lblCedula.setText("Cedula:");
 
-        btnBuscar.setFont(new java.awt.Font("Sitka Subheading", 2, 24)); // NOI18N
+        btnBuscar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +89,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
 
         txttelefono.setEditable(false);
 
-        btnEliminar.setFont(new java.awt.Font("Sitka Subheading", 2, 24)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

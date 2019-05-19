@@ -26,14 +26,17 @@ public class ListarProducto extends javax.swing.JInternalFrame {
         llenarDatos();
     }
     public void llenarDatos(){
+        
         DefaultTableModel modelo = (DefaultTableModel) lista.getModel();
-        Set<Producto> Lista= controladorProducto.getLista();
-        for(Producto producto : Lista){
+        Set<Producto> lista = controladorProducto.getLista();
+        for (Producto producto : lista) {
             Object[] datos = {producto.getCodigoProducto(),
-                              producto.getNombre(),
-                              producto.getPrecio()};
-                              modelo.addRow(datos);
+                producto.getNombre(),
+                producto.getPrecio(),
+                producto.getDetalle() };
+                modelo.addRow(datos);
         }
+        
     }
 
     /**

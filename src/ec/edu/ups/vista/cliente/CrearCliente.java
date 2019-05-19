@@ -55,13 +55,13 @@ public class CrearCliente extends javax.swing.JInternalFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
-        jLabel2.setText("Nombre:");
+        jLabel2.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        jLabel2.setText("Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 249, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Serif", 2, 48)); // NOI18N
         jLabel1.setText("Crear Cliente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,21 +71,21 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 255, 230, 31));
         jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 299, 230, 31));
 
-        jLabel3.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
-        jLabel3.setText("Cedula: ");
+        jLabel3.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        jLabel3.setText("Cedula");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 299, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
-        jLabel4.setText("Direccion:");
+        jLabel4.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        jLabel4.setText("Direccion");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 349, -1, -1));
         jPanel1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 355, 230, 31));
 
-        jLabel5.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
-        jLabel5.setText("Telefono:");
+        jLabel5.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        jLabel5.setText("Telefono");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 404, -1, -1));
         jPanel1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 404, 230, 31));
 
-        jButton1.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +94,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,10 +103,11 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
-        jLabel6.setText("Codigo:");
+        jLabel6.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        jLabel6.setText("Codigo");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 194, -1, -1));
 
+        txtcodigo.setEditable(false);
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodigoActionPerformed(evt);

@@ -38,6 +38,15 @@ public class Factura {
         detalles = new ArrayList<>();
     }
 
+    public List<FacturaDetalle> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<FacturaDetalle> detalles) {
+        this.detalles = detalles;
+    }
+    
+
     public void añadirFacturaDetalle(FacturaDetalle facturaDetalle){
         detalles.add(facturaDetalle);
     }
@@ -90,6 +99,14 @@ public class Factura {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+     public void delete(int codigo){
+        for(int i = 0; i < detalles.size(); i++){
+            if(detalles.get(i).getCodigo() == codigo){
+                detalles.remove(i);
+            }
+        }
+        
     }
 
     

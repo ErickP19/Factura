@@ -5,13 +5,16 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author erics
  */
 public class FacturaDetalle {
-    private int codigo;
-    private int precio;
+      private int codigo;
+    private double precio;
     private int cantidad;
     private double subtotal;
     private Producto producto;
@@ -19,7 +22,7 @@ public class FacturaDetalle {
     public FacturaDetalle() {
     }
 
-    public FacturaDetalle(int codigo, int precio, int cantidad, double subtotal, Producto producto) {
+    public FacturaDetalle(int codigo, double precio, int cantidad, double subtotal, Producto producto) {
         this.codigo = codigo;
         this.precio = precio;
         this.cantidad = cantidad;
@@ -35,11 +38,11 @@ public class FacturaDetalle {
         this.codigo = codigo;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

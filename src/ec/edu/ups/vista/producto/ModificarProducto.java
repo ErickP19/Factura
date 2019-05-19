@@ -36,200 +36,182 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        l1 = new javax.swing.JLabel();
-        codigonombre = new javax.swing.JLabel();
-        codigoproducto = new javax.swing.JTextField();
-        nombrep = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        nombreproducto = new javax.swing.JTextField();
-        preciop = new javax.swing.JLabel();
-        precioproducto = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        detallep = new javax.swing.JLabel();
-        detalleproducto = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        labela = new javax.swing.JLabel();
+        txtcodigo = new javax.swing.JTextField();
+        txtxdetalle = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
+        txtprecio = new javax.swing.JTextField();
+        botonA = new javax.swing.JButton();
+        labeld = new javax.swing.JLabel();
+        labeln = new javax.swing.JLabel();
+        labelp = new javax.swing.JLabel();
+        botonB = new javax.swing.JButton();
 
         setClosable(true);
 
-        jButton2.setFont(new java.awt.Font("Yu Gothic Medium", 2, 18)); // NOI18N
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        labela.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labela.setText("Ingrese codigo del producto");
+
+        txtxdetalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                txtxdetalleActionPerformed(evt);
             }
         });
 
-        l1.setFont(new java.awt.Font("Rockwell", 3, 48)); // NOI18N
-        l1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l1.setText("ACTUALIZAR PRODUCTO");
-
-        codigonombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        codigonombre.setText("Codigo");
-
-        codigoproducto.addActionListener(new java.awt.event.ActionListener() {
+        txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoproductoActionPerformed(evt);
+                txtnombreActionPerformed(evt);
             }
         });
 
-        nombrep.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        nombrep.setText("Nombre");
-
-        jButton3.setFont(new java.awt.Font("Yu Gothic Medium", 2, 18)); // NOI18N
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonA.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonA.setText("Actualizar");
+        botonA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonAActionPerformed(evt);
             }
         });
 
-        preciop.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        preciop.setText("Precio");
+        labeld.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeld.setText("Ingrese detalle");
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic Medium", 2, 18)); // NOI18N
-        jButton1.setText("Actualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        labeln.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeln.setText("Ingrese un nombre");
+
+        labelp.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelp.setText("Ingrese precio");
+
+        botonB.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonB.setText("Buscar");
+        botonB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonBActionPerformed(evt);
             }
         });
 
-        detallep.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        detallep.setText("Ingrese detalle");
-
-        detalleproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                detalleproductoActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonA)
+                .addGap(194, 194, 194))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(labela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labeln)
+                            .addComponent(labelp)
+                            .addComponent(labeld, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                            .addComponent(txtprecio)
+                            .addComponent(txtxdetalle))
+                        .addGap(58, 58, 58))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(botonB, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labela)
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonB))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtxdetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labeld)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labeln)
+                        .addGap(34, 34, 34)
+                        .addComponent(labelp)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(botonA)
+                .addGap(30, 30, 30))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(l1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nombrep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(preciop, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(precioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(codigonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(codigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(detallep, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(detalleproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(43, 43, 43)
-                .addComponent(jButton2)
-                .addGap(138, 138, 138))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(l1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codigonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombrep)
-                    .addComponent(nombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(preciop)
-                    .addComponent(precioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(detalleproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(detallep))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(45, 45, 45))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void txtxdetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtxdetalleActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_txtxdetalleActionPerformed
 
-    private void codigoproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoproductoActionPerformed
+    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codigoproductoActionPerformed
+    }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAActionPerformed
         // TODO add your handling code here:
-        int codigo = Integer.parseInt(codigoproducto.getText());
-        Producto buscarProducto = controladorProducto.read(codigo);
-        nombreproducto.setText(buscarProducto.getNombre());
-        precioproducto.setText(String.valueOf(buscarProducto.getPrecio()));
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         Producto producto = new Producto();
-        producto.setCodigoProducto(Integer.parseInt(codigoproducto.getText()));
-        producto.setNombre(nombreproducto.getText());
-        producto.setDetalle(detalleproducto.getText());
-        producto.setPrecio(Double.parseDouble(precioproducto.getText()));
+        Producto producto = new Producto();
+        producto.setCodigoProducto(Integer.parseInt(txtcodigo.getText()));
+        producto.setNombre(txtnombre.getText());
+        producto.setDetalle(txtxdetalle.getText());
+        producto.setPrecio(Double.parseDouble(txtprecio.getText()));
         controladorProducto.update(producto);
-        nombreproducto.setText("");
-        precioproducto.setText("");
-        detalleproducto.setText("");
+        txtnombre.setText("");
+        txtprecio.setText("");
+        txtxdetalle.setText("");
         JOptionPane.showMessageDialog(this, "Producto Actualizado exitosamente", "Actualizar producto", JOptionPane.OK_OPTION);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonAActionPerformed
 
-    private void detalleproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleproductoActionPerformed
+    private void botonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_detalleproductoActionPerformed
+        int codigo = Integer.parseInt(txtcodigo.getText());
+        Producto producto = controladorProducto.read(codigo);
+        txtnombre.setText(producto.getNombre());
+        txtxdetalle.setText(producto.getDetalle());
+        txtprecio.setText(Double.toString(producto.getPrecio()));
+    }//GEN-LAST:event_botonBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel codigonombre;
-    private javax.swing.JTextField codigoproducto;
-    private javax.swing.JLabel detallep;
-    private javax.swing.JTextField detalleproducto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel l1;
-    private javax.swing.JLabel nombrep;
-    private javax.swing.JTextField nombreproducto;
-    private javax.swing.JLabel preciop;
-    private javax.swing.JTextField precioproducto;
+    private javax.swing.JButton botonA;
+    private javax.swing.JButton botonB;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labela;
+    private javax.swing.JLabel labeld;
+    private javax.swing.JLabel labeln;
+    private javax.swing.JLabel labelp;
+    private javax.swing.JTextField txtcodigo;
+    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtprecio;
+    private javax.swing.JTextField txtxdetalle;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,26 +25,25 @@ public class ListarCLiente extends javax.swing.JInternalFrame {
     public ListarCLiente(ControladorCliente ControladorCliente) {
         initComponents();
        this.controladorCliente = ControladorCliente;
-       ListarClientes();
+       llenarDatos();
         
     }
 
     ListarCLiente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public void ListarClientes(){
-        DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
-        Set<Cliente>lista = controladorCliente.getLista();
-        for(Cliente cliente : lista){
-         Object[]  datos = {cliente.getCodigo(),
-             cliente.getNombre(),
-             cliente.getCedula(),
-             cliente.getDireccion(),
-             cliente.getTelefono()};
-             modelo.addRow(datos);
-         
-        }
+     public void llenarDatos(){
         
+        DefaultTableModel modelo = (DefaultTableModel) tablacliente.getModel();
+        Set<Cliente> lista = controladorCliente.getLista();
+        for (Cliente cliente : lista) {
+            Object[] datos = {cliente.getCodigo(),
+                cliente.getNombre(),
+                cliente.getCedula(),
+                cliente.getDireccion(),
+                cliente.getTelefono() };
+            modelo.addRow(datos);
+        }
         
     }
     
@@ -60,7 +59,7 @@ public class ListarCLiente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCliente = new javax.swing.JTable();
+        tablacliente = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 3, 48))); // NOI18N
@@ -68,7 +67,7 @@ public class ListarCLiente extends javax.swing.JInternalFrame {
 
         jScrollPane1.setRequestFocusEnabled(false);
 
-        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tablacliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -76,7 +75,7 @@ public class ListarCLiente extends javax.swing.JInternalFrame {
                 "Codigo", "Nombre", "Cedula", "Direccion", "Telefono"
             }
         ));
-        jScrollPane1.setViewportView(tblCliente);
+        jScrollPane1.setViewportView(tablacliente);
 
         jLabel1.setFont(new java.awt.Font("Serif", 3, 48)); // NOI18N
         jLabel1.setText("Lista Clientes");
@@ -112,6 +111,6 @@ public class ListarCLiente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblCliente;
+    private javax.swing.JTable tablacliente;
     // End of variables declaration//GEN-END:variables
 }

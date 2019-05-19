@@ -5,7 +5,7 @@
  */
 package ec.edu.ups.vista;
 
-import ec.edu.ups.vista.factura.CrearFactura;
+
 import ec.edu.ups.vista.cliente.ListarCLiente;
 import ec.edu.ups.vista.cliente.ModificarCliente;
 import ec.edu.ups.vista.cliente.BuscarCliente;
@@ -16,6 +16,7 @@ import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
+import ec.edu.ups.vista.factura.CrearFactura1;
 import ec.edu.ups.vista.producto.BuscarProducto;
 import ec.edu.ups.vista.producto.CrearProducto;
 import ec.edu.ups.vista.producto.EliminarProducto;
@@ -24,6 +25,7 @@ import ec.edu.ups.vista.producto.ModificarProducto;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,8 +91,8 @@ public class Principal extends javax.swing.JFrame {
         listarfactura = new javax.swing.JMenuItem();
         menuproducto = new javax.swing.JMenu();
         crearproducto = new javax.swing.JMenuItem();
-        modificarproducto = new javax.swing.JMenuItem();
         buscarproducto = new javax.swing.JMenuItem();
+        modificarproducto = new javax.swing.JMenuItem();
         eliminarproducto = new javax.swing.JMenuItem();
         listarproducto = new javax.swing.JMenuItem();
         menuidioma = new javax.swing.JMenu();
@@ -228,16 +230,6 @@ public class Principal extends javax.swing.JFrame {
         });
         menuproducto.add(crearproducto);
 
-        modificarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        modificarproducto.setMnemonic('s');
-        modificarproducto.setText("Update");
-        modificarproducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarproductoActionPerformed(evt);
-            }
-        });
-        menuproducto.add(modificarproducto);
-
         buscarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         buscarproducto.setMnemonic('a');
         buscarproducto.setText("Read");
@@ -247,6 +239,16 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menuproducto.add(buscarproducto);
+
+        modificarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        modificarproducto.setMnemonic('s');
+        modificarproducto.setText("Update");
+        modificarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarproductoActionPerformed(evt);
+            }
+        });
+        menuproducto.add(modificarproducto);
 
         eliminarproducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         eliminarproducto.setMnemonic('x');
@@ -306,7 +308,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarclienteActionPerformed
-        EliminarCliente crear = new EliminarCliente();
+        EliminarCliente crear = new EliminarCliente(controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
     }//GEN-LAST:event_eliminarclienteActionPerformed
@@ -327,9 +329,27 @@ public class Principal extends javax.swing.JFrame {
 
     private void modificarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarclienteActionPerformed
         // TODO add your handling code here:
-        ModificarCliente crear = new ModificarCliente( controladorCliente);
+        /*
+        String x = ModificarCliente.x;
+        try {
+            if (x == null) {
+                ModificarCliente actualizarcliente = new ModificarCliente(controladorCliente);
+
+                desktopPane.add(actualizarcliente);
+                desktopPane.moveToFront(actualizarcliente);
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "La ventana esta en ejecucion");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        */
+        
+        ModificarCliente crear = new ModificarCliente(controladorCliente);
         crear.setVisible(true);
         desktopPane.add(crear);
+       
     }//GEN-LAST:event_modificarclienteActionPerformed
 
     private void listarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarclienteActionPerformed
@@ -392,9 +412,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void crearfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearfacturaActionPerformed
         // TODO add your handling code here:
-        CrearFactura crear = new CrearFactura(controladorFactura);
-        crear.setVisible(true);
-        desktopPane.add(crear);
+        CrearFactura1 l = new CrearFactura1(controladorFactura, controladorCliente, controladorFacturaDetalle,controladorProducto,mensajes);
+        l.setVisible(true);
+        desktopPane.add(l);
+        
         
     }//GEN-LAST:event_crearfacturaActionPerformed
 
