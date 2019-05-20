@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.vista.factura;
 
+import com.sun.glass.events.KeyEvent;
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
@@ -37,6 +38,9 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         private Factura factura;
         private Producto producto;
         private int contador;
+        
+        private double total1,subtotal,iva,total2;
+        private DefaultTableModel tablaF;
 
     /**
      * Creates new form CrearFactura1
@@ -52,6 +56,13 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         txtnumerofactura.setText(Integer.toString(this.controladorFactura.getCodigo()));
         this.mensajes = mensajes;
         cambiarIdioma(mensajes);
+        
+        total1 = 0;
+        subtotal = 0;
+        iva = 0;
+        total2=0;
+        tablaF=null;
+        producto=null;
     }
     
      public void llenarDatos(){
@@ -96,14 +107,14 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         labeltelefono.setText(mensajes.getString("cliente.telefono"));
         labelfecha.setText(mensajes.getString("factura.fecha"));
         labeliva.setText(mensajes.getString("factura.iva"));
-        labelcodigoproducto.setText(mensajes.getString("factura.codigoproducto"));
-        labelnombreproducto.setText(mensajes.getString("factura.productonombre"));
+       // labelcodigoproducto.setText(mensajes.getString("factura.codigoproducto"));
+       // labelnombreproducto.setText(mensajes.getString("factura.productonombre"));
         labelquitar.setText(mensajes.getString("factura.quitardetalle"));
         labelquitarcodigo.setText(mensajes.getString("producto.codigo"));
         botonquitar.setText(mensajes.getString("factura.quitar"));
-        botonbuscar2.setText(mensajes.getString("boton.buscar"));
-        labelcantidad.setText(mensajes.getString("factura.cantidad"));
-        botonagregar.setText(mensajes.getString("boton.agregar"));
+       // botonbuscar2.setText(mensajes.getString("boton.buscar"));
+       // labelcantidad.setText(mensajes.getString("factura.cantidad"));
+      //  botonagregar.setText(mensajes.getString("boton.agregar"));
         botonbuscar1.setText(mensajes.getString("boton.buscar"));
         botoncrear.setText(mensajes.getString("boton.crear"));
         
@@ -131,6 +142,7 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jPanel1 = new javax.swing.JPanel();
         txtcedula = new javax.swing.JTextField();
         labelcedula = new javax.swing.JLabel();
@@ -146,8 +158,6 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         txtdireccion = new javax.swing.JTextField();
         labelfecha = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabladetalle = new javax.swing.JTable();
         lablesubtotal = new javax.swing.JLabel();
         txtsubtotal = new javax.swing.JTextField();
         txtiva = new javax.swing.JTextField();
@@ -156,18 +166,12 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         labeltotal = new javax.swing.JLabel();
         botoncrear = new javax.swing.JButton();
         botonbuscar1 = new javax.swing.JButton();
-        labelcodigoproducto = new javax.swing.JLabel();
-        txtcodigoproducto = new javax.swing.JTextField();
-        labelcantidad = new javax.swing.JLabel();
-        txtcantidad = new javax.swing.JTextField();
-        botonagregar = new javax.swing.JButton();
-        botonbuscar2 = new javax.swing.JButton();
-        labelnombreproducto = new javax.swing.JLabel();
-        txtnombreproducto = new javax.swing.JTextField();
         labelquitar = new javax.swing.JLabel();
         labelquitarcodigo = new javax.swing.JLabel();
         txtquitar = new javax.swing.JTextField();
         botonquitar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabladetalle = new javax.swing.JTable();
 
         setClosable(true);
 
@@ -210,24 +214,6 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
 
         txtfecha.setEditable(false);
 
-        tabladetalle.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Cantidad", "Producto", "Precio Unitario", "Subtotal"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tabladetalle);
-
         lablesubtotal.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
         lablesubtotal.setText("Subtotal");
 
@@ -268,33 +254,6 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
             }
         });
 
-        labelcodigoproducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        labelcodigoproducto.setText("Codigo de producto");
-
-        labelcantidad.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        labelcantidad.setText("Cantidad");
-
-        botonagregar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        botonagregar.setText("Agregar");
-        botonagregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonagregarActionPerformed(evt);
-            }
-        });
-
-        botonbuscar2.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        botonbuscar2.setText("Buscar");
-        botonbuscar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonbuscar2ActionPerformed(evt);
-            }
-        });
-
-        labelnombreproducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        labelnombreproducto.setText("Nombre producto");
-
-        txtnombreproducto.setEditable(false);
-
         labelquitar.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
         labelquitar.setText("Quitar Detalle");
 
@@ -315,6 +274,21 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
             }
         });
 
+        tabladetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, "0", null, null, null}
+            },
+            new String [] {
+                "Codigo", "Cantidad", "Nombre", "Precio Unitario", "Total"
+            }
+        ));
+        tabladetalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tabladetalleKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabladetalle);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -323,86 +297,65 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(labelcodigo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(labelfecha)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtfecha))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(labelnombre)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labeldireccion)
-                                    .addComponent(labeltelefono))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtdireccion)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(labelcantidad)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(labelcodigoproducto)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtcodigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(64, 64, 64)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(botonagregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(botonbuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(38, 38, 38)
-                                .addComponent(labelnombreproducto)))
+                        .addComponent(labelcodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtnombreproducto, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                        .addGap(9, 9, 9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelquitar)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(labelquitarcodigo)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtquitar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(botonquitar)))
-                                .addGap(167, 167, 167)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lablesubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labeliva)
-                                    .addComponent(labeltotal))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(botoncrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtiva, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtsubtotal)
-                                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19))))
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelfecha)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtfecha))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelnombre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labeldireccion)
+                    .addComponent(labeltelefono))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdireccion))
+                .addGap(225, 225, 225))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelquitar)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelquitarcodigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtquitar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonquitar)))
+                .addGap(167, 167, 167)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lablesubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labeliva)
+                    .addComponent(labeltotal))
                 .addGap(18, 18, 18)
-                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonbuscar1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelnumero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtnumerofactura, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(botoncrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtiva, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtsubtotal)
+                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 42, Short.MAX_VALUE)
+                        .addComponent(labelcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonbuscar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(labelnumero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtnumerofactura, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
@@ -442,21 +395,9 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelfecha)
                     .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelcodigoproducto)
-                    .addComponent(txtcodigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonbuscar2)
-                    .addComponent(labelnombreproducto)
-                    .addComponent(txtnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelcantidad)
-                    .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonagregar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -480,7 +421,7 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
                     .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(botoncrear)
-                .addGap(25, 25, 25))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -491,22 +432,39 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnumerofacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerofacturaActionPerformed
+    private void botonquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonquitarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnumerofacturaActionPerformed
+        int codigoQuitar = Integer.parseInt(txtquitar.getText());
+        factura.delete(codigoQuitar);
+        contador = 0;
+        vaciarTabla();
+        llenarDatos();
+        txtquitar.setText("");
+    }//GEN-LAST:event_botonquitarActionPerformed
 
-    private void txtsubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsubtotalActionPerformed
+    private void txtquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquitarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsubtotalActionPerformed
+    }//GEN-LAST:event_txtquitarActionPerformed
+
+    private void botonbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscar1ActionPerformed
+        // TODO add your handling code here:
+        Date date = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaTexto = formato.format(date.getTime());
+
+        Cliente cliente = controladorCliente.read1(txtcedula.getText());
+        txtcodigo.setText(Integer.toString(cliente.getCodigo()));
+        txtnombre.setText(cliente.getNombre());
+        txtfecha.setText(fechaTexto);
+        txttelefono.setText(cliente.getTelefono());
+        txtdireccion.setText(cliente.getDireccion());
+    }//GEN-LAST:event_botonbuscar1ActionPerformed
 
     private void botoncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncrearActionPerformed
         // TODO add your handling code here:
@@ -523,6 +481,58 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         txtnumerofactura.setText(Integer.toString(controladorFactura.getCodigo()));
         JOptionPane.showMessageDialog(this, "Factura creada exitosamente", "Crear factura", JOptionPane.OK_OPTION);
     }//GEN-LAST:event_botoncrearActionPerformed
+
+    private void txtsubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsubtotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsubtotalActionPerformed
+
+    private void txtnumerofacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerofacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnumerofacturaActionPerformed
+
+    private void tabladetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabladetalleKeyReleased
+        // TODO add your handling code here:
+        int key = evt.getKeyCode();
+        if(key == KeyEvent.VK_ENTER){
+            int fila = tabladetalle.getSelectedRow();
+            int columna = tabladetalle.getSelectedColumn();
+            int codigo1 = 0;
+            
+           Object[] datos1 = { "", 0,"","",""};
+           if (columna==0){
+               codigo1= Integer.parseInt(tabladetalle.getValueAt(fila, columna).toString());
+               producto=controladorProducto.read(codigo1);
+               double precio = producto.getPrecio();
+               int canti = Integer.parseInt(tabladetalle.getValueAt(fila, 1).toString());
+               tablaF = (DefaultTableModel)tabladetalle.getModel();
+               tablaF.removeRow(fila);
+               total1 = precio*canti;
+               
+               Object []datos= {codigo1,canti,producto.getNombre(),producto.getPrecio(),total1};
+               tablaF.addRow(datos);
+               tablaF.addRow(datos1);
+           }else if (columna == 1){
+               
+                codigo1= Integer.parseInt(tabladetalle.getValueAt(fila, columna -1).toString());
+                int canti = Integer.parseInt(tabladetalle.getValueAt(fila, columna).toString());
+                tablaF.removeRow(fila);
+                tablaF.removeRow(tabladetalle.getRowCount()-1);
+                total1 = producto.getPrecio()*canti;
+                Object []datos= {codigo1,canti,producto.getNombre(),producto.getPrecio(),total1}; 
+                tablaF.addRow(datos);
+                tablaF.addRow(datos1); 
+           }
+           subtotal = subtotal+total1;
+           iva = subtotal *0.12;
+           total2= subtotal+iva;
+           txtsubtotal.setText(String.valueOf(subtotal));
+           txtiva.setText(String.valueOf(iva));
+           txttotal.setText(String.valueOf(total2));
+           
+           
+   
+        }
+    }//GEN-LAST:event_tabladetalleKeyReleased
     public void vaciarTabla(){
         DefaultTableModel modelo = (DefaultTableModel) tabladetalle.getModel();
         int filas=tabladetalle.getRowCount();
@@ -541,84 +551,27 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
         txtfecha.setText("");
         txttelefono.setText("");
         txtdireccion.setText("");
-        txtcodigoproducto.setText("");
-        txtnombreproducto.setText("");
-        txtcantidad.setText("");
+       // txtcodigoproducto.setText("");
+       // txtnombreproducto.setText("");
+       // txtcantidad.setText("");
         txtsubtotal.setText("");
         txttotal.setText("");
         txtquitar.setText("");
     }
-    private void botonbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscar1ActionPerformed
-        // TODO add your handling code here:
-        Date date = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaTexto = formato.format(date.getTime());
-
-        Cliente cliente = controladorCliente.read1(txtcedula.getText());
-        txtcodigo.setText(Integer.toString(cliente.getCodigo()));
-        txtnombre.setText(cliente.getNombre());
-        txtfecha.setText(fechaTexto);
-        txttelefono.setText(cliente.getTelefono());
-        txtdireccion.setText(cliente.getDireccion());
-    }//GEN-LAST:event_botonbuscar1ActionPerformed
-
-    private void botonagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonagregarActionPerformed
-        // TODO add your handling code here:
-        FacturaDetalle facturaDetalle = new FacturaDetalle();
-        int codigoProducto=Integer.parseInt(txtcodigoproducto.getText());
-        producto = controladorProducto.read(codigoProducto);
-        txtnombreproducto.setText("");
-        facturaDetalle.setProducto(producto);
-        facturaDetalle.setCantidad(Integer.parseInt(txtcantidad.getText()));
-        facturaDetalle.setPrecio((producto.getPrecio()));
-        facturaDetalle.setSubtotal((producto.getPrecio()*facturaDetalle.getCantidad()));
-        txtcodigoproducto.setText("");
-        txtcantidad.setText("");
-        
-        controladorFacturaDetalle.create(facturaDetalle);
-        factura.añadirFacturaDetalle(facturaDetalle);
-        llenarDatos();
-    }//GEN-LAST:event_botonagregarActionPerformed
-
-    private void botonbuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscar2ActionPerformed
-        // TODO add your handling code here:
-        int codigoProducto=Integer.parseInt(txtcodigoproducto.getText());
-        producto = controladorProducto.read(codigoProducto);
-        txtnombreproducto.setText(producto.getNombre());
-    }//GEN-LAST:event_botonbuscar2ActionPerformed
-
-    private void txtquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquitarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtquitarActionPerformed
-
-    private void botonquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonquitarActionPerformed
-        // TODO add your handling code here:
-        int codigoQuitar = Integer.parseInt(txtquitar.getText());
-        factura.delete(codigoQuitar);
-        contador = 0;
-        vaciarTabla();
-        llenarDatos();
-        txtquitar.setText("");
-    }//GEN-LAST:event_botonquitarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonagregar;
     private javax.swing.JButton botonbuscar1;
-    private javax.swing.JButton botonbuscar2;
     private javax.swing.JButton botoncrear;
     private javax.swing.JButton botonquitar;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelcantidad;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelcedula;
     private javax.swing.JLabel labelcodigo;
-    private javax.swing.JLabel labelcodigoproducto;
     private javax.swing.JLabel labeldireccion;
     private javax.swing.JLabel labelfecha;
     private javax.swing.JLabel labeliva;
     private javax.swing.JLabel labelnombre;
-    private javax.swing.JLabel labelnombreproducto;
     private javax.swing.JLabel labelnumero;
     private javax.swing.JLabel labelquitar;
     private javax.swing.JLabel labelquitarcodigo;
@@ -626,15 +579,12 @@ public class CrearFactura1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labeltotal;
     private javax.swing.JLabel lablesubtotal;
     private javax.swing.JTable tabladetalle;
-    private javax.swing.JTextField txtcantidad;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
-    private javax.swing.JTextField txtcodigoproducto;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtiva;
     private javax.swing.JTextField txtnombre;
-    private javax.swing.JTextField txtnombreproducto;
     private javax.swing.JTextField txtnumerofactura;
     private javax.swing.JTextField txtquitar;
     private javax.swing.JTextField txtsubtotal;

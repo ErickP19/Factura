@@ -20,11 +20,11 @@ public class CrearProducto extends javax.swing.JInternalFrame {
     /**
      * Creates new form CrearProducto
      */
-    public CrearProducto(ControladorProducto controladorProducto, ResourceBundle mensajaes) {
+    public CrearProducto(ControladorProducto controladorProducto, ResourceBundle mensajes) {
         initComponents();
         this.controladorProducto = controladorProducto;
-         this.mensajes = mensajes;
-         txtcodigo.setText(Integer.toString(this.controladorProducto.getCodigo()));
+        this.mensajes = mensajes;
+        txtcodigo.setText(Integer.toString(this.controladorProducto.getCodigo()));
         cambiarIdioma(mensajes);
     }
     

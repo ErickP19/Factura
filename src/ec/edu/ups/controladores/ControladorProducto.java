@@ -43,10 +43,10 @@ public class ControladorProducto {
     }
     
     public void update(Producto producto){
-        if(lista.contains(producto)){
+        
             lista.remove(producto);
             lista.add(producto);
-        }
+        
     }
     
     public void delete(int codigo){

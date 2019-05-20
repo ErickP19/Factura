@@ -211,6 +211,8 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         txtnombre.setText(producto.getNombre());
         txtxdetalle.setText(producto.getDetalle());
         txtprecio.setText(Double.toString(producto.getPrecio()));
+        controladorProducto.delete(Integer.parseInt(txtcodigo.getText()));
+        
     }//GEN-LAST:event_botonbuscarActionPerformed
 
 

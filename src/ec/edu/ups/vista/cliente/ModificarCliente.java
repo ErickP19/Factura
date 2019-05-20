@@ -176,13 +176,13 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
                         .addGap(24, 24, 24)
                         .addComponent(labelcodigo)
                         .addGap(87, 87, 87)
-                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(botonbuscar))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,8 +223,7 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
 
     private void botonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarActionPerformed
         // TODO add your handling code here:
-        Cliente cliente = new Cliente();
-
+        Cliente cliente = controladorCliente.read(Integer.parseInt(txtcodigo.getText()));
         cliente= controladorCliente.read(Integer.parseInt(txtcodigo.getText()));
         if(cliente == null){
             JOptionPane.showMessageDialog(null, "El cliente no existe");
@@ -234,7 +233,7 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
             txtnombre.setText(cliente.getNombre());
             txtdir.setText(cliente.getDireccion());
             txttele.setText(cliente.getTelefono());
-            controladorCliente.delete(Integer.parseInt(txtcodigo.getText()));
+           controladorCliente.delete(Integer.parseInt(txtcodigo.getText()));
 
         }
         
