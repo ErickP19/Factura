@@ -7,6 +7,7 @@ package ec.edu.ups.vista.producto;
 
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.modelo.Producto;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -16,12 +17,24 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
 
     
     private ControladorProducto controladorProducto;
+    private ResourceBundle mensajes;
     /**
      * Creates new form BuscarProducto
      */
-    public BuscarProducto(ControladorProducto controladorProducto) {
+    public BuscarProducto(ControladorProducto controladorProducto, ResourceBundle mensajes) {
         initComponents();
         this.controladorProducto = controladorProducto;
+        this.mensajes=mensajes;
+        cambiarIdioma(mensajes);
+    }
+     public void cambiarIdioma(ResourceBundle mensajes){
+        
+        labelcodigo.setText(mensajes.getString("producto.codigo"));
+        labelnombre.setText(mensajes.getString("producto.nombre"));
+        labelprecio.setText(mensajes.getString("producto.precio"));
+        labeldetalle.setText(mensajes.getString("producto.detalle"));
+        botonbuscar.setText(mensajes.getString("boton.leer"));
+        
     }
 
     /**
@@ -34,20 +47,20 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        labelcodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         txtdestalle = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txtprecio = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        botonb = new javax.swing.JButton();
+        labeldetalle = new javax.swing.JLabel();
+        labelnombre = new javax.swing.JLabel();
+        labelprecio = new javax.swing.JLabel();
+        botonbuscar = new javax.swing.JButton();
 
         setClosable(true);
 
-        jLabel5.setFont(new java.awt.Font("Minion Pro Cond", 2, 24)); // NOI18N
-        jLabel5.setText("Ingrese codigo ");
+        labelcodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigo.setText("Ingrese codigo ");
 
         txtdestalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,20 +74,20 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel3.setText("Ingrese detalle");
+        labeldetalle.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeldetalle.setText("Ingrese detalle");
 
-        jLabel1.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel1.setText("Ingrese un nombre");
+        labelnombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnombre.setText("Ingrese un nombre");
 
-        jLabel2.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel2.setText("Ingrese precio");
+        labelprecio.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelprecio.setText("Ingrese precio");
 
-        botonb.setFont(new java.awt.Font("Informal Roman", 2, 24)); // NOI18N
-        botonb.setText("Buscar");
-        botonb.addActionListener(new java.awt.event.ActionListener() {
+        botonbuscar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonbuscar.setText("Buscar");
+        botonbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonbActionPerformed(evt);
+                botonbuscarActionPerformed(evt);
             }
         });
 
@@ -82,39 +95,32 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 182, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                            .addComponent(txtprecio)
-                            .addComponent(txtdestalle))
-                        .addGap(58, 58, 58))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonb, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(labeldetalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelprecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelnombre)
+                    .addComponent(labelcodigo))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                        .addComponent(txtprecio)
+                        .addComponent(txtdestalle))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(botonbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelcodigo))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -124,14 +130,14 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtdestalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
+                            .addComponent(labeldetalle)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labelnombre)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(botonb)
-                .addGap(40, 40, 40))
+                        .addComponent(labelprecio)))
+                .addGap(28, 28, 28)
+                .addComponent(botonbuscar)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,23 +162,23 @@ public class BuscarProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void botonbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbActionPerformed
+    private void botonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarActionPerformed
         // TODO add your handling code here:
         int codigo = Integer.parseInt(txtcodigo.getText());
         Producto producto = controladorProducto.read(codigo);
         txtnombre.setText(producto.getNombre());
         txtdestalle.setText(producto.getDetalle());
         txtprecio.setText(Double.toString(producto.getPrecio()));
-    }//GEN-LAST:event_botonbActionPerformed
+    }//GEN-LAST:event_botonbuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonb;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton botonbuscar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelcodigo;
+    private javax.swing.JLabel labeldetalle;
+    private javax.swing.JLabel labelnombre;
+    private javax.swing.JLabel labelprecio;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdestalle;
     private javax.swing.JTextField txtnombre;

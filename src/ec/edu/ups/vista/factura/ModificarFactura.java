@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -49,7 +52,44 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
         this.controladorCliente = controladorCliente;
         contador = 0;
         this.mensajes = mensajes;
+        cambiarIdioma(mensajes);
         
+    }
+    public void cambiarIdioma(ResourceBundle mensajes){
+        
+        labelcodigo.setText(mensajes.getString("factura.codigo"));
+        labelnumero.setText(mensajes.getString("factura.numero"));
+        labelnombre.setText(mensajes.getString("factura.nombre"));
+        labelcedula.setText(mensajes.getString("factura.cedula"));
+        labeliva.setText(mensajes.getString("factura.iva"));
+        labelsubtotal.setText(mensajes.getString("factura.subtotal"));
+        labeltotal.setText(mensajes.getString("factura.total"));
+        labeltelefono.setText(mensajes.getString("factura.telefono"));
+        labeldireccion.setText(mensajes.getString("factura.direccion"));
+        labelfecha.setText(mensajes.getString("factura.fecha"));
+        labelcodigoproducto.setText(mensajes.getString("factura.codigoproducto"));
+        labelnombreproducto.setText(mensajes.getString("factura.productonombre"));
+        labelquitar.setText(mensajes.getString("factura.quitardetalle"));
+        labelcodigoquitar.setText(mensajes.getString("producto.codigo"));
+        botonquitar.setText(mensajes.getString("factura.quitar"));
+        botonbuscar2.setText(mensajes.getString("boton.buscar"));
+        labelcantidad.setText(mensajes.getString("factura.cantidad"));
+        botonagregar.setText(mensajes.getString("boton.agregar"));
+        botonbuscar.setText(mensajes.getString("boton.buscar"));
+        botonactualizar.setText(mensajes.getString("boton.actualizar"));
+        
+        JTableHeader tableHeader = tabladetalle.getTableHeader();
+        TableColumnModel tableColumnModel = tableHeader.getColumnModel();
+        TableColumn tableColumn;
+        tableColumn = tableColumnModel.getColumn(0);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.codigo"));
+        tableColumn = tableColumnModel.getColumn(1);
+        tableColumn.setHeaderValue(mensajes.getString("factura.cantidad"));
+        tableColumn = tableColumnModel.getColumn(2);
+        tableColumn.setHeaderValue(mensajes.getString("factura.producto"));
+        tableColumn = tableColumnModel.getColumn(3);
+        tableColumn.setHeaderValue(mensajes.getString("factura.precio"));
+        tableHeader.repaint();
     }
 
     /**
@@ -63,47 +103,47 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtcedula = new javax.swing.JTextField();
-        lblCedula = new javax.swing.JLabel();
-        lblNumero = new javax.swing.JLabel();
+        labelcedula = new javax.swing.JLabel();
+        labelnumero = new javax.swing.JLabel();
         txtnumerofactura = new javax.swing.JTextField();
-        lblCodigo = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblTelefono = new javax.swing.JLabel();
-        lblDireccion = new javax.swing.JLabel();
+        labelcodigo = new javax.swing.JLabel();
+        labelnombre = new javax.swing.JLabel();
+        labeltelefono = new javax.swing.JLabel();
+        labeldireccion = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
-        lblFecha = new javax.swing.JLabel();
+        labelfecha = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladetalle = new javax.swing.JTable();
-        lblSubtotal = new javax.swing.JLabel();
+        labelsubtotal = new javax.swing.JLabel();
         txtsubtotal = new javax.swing.JTextField();
         txtiva = new javax.swing.JTextField();
-        lblIva = new javax.swing.JLabel();
+        labeliva = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        lblTotal = new javax.swing.JLabel();
+        labeltotal = new javax.swing.JLabel();
         botonactualizar = new javax.swing.JButton();
         botonbuscar = new javax.swing.JButton();
-        lblCodigoProducto = new javax.swing.JLabel();
+        labelcodigoproducto = new javax.swing.JLabel();
         txtcodigoproducto = new javax.swing.JTextField();
-        lblCantidad = new javax.swing.JLabel();
+        labelcantidad = new javax.swing.JLabel();
         txtcantidad = new javax.swing.JTextField();
         botonagregar = new javax.swing.JButton();
-        botonbuscarproducto = new javax.swing.JButton();
-        lblNombreProducto = new javax.swing.JLabel();
+        botonbuscar2 = new javax.swing.JButton();
+        labelnombreproducto = new javax.swing.JLabel();
         txtNombreProducto = new javax.swing.JTextField();
-        lblQuitar = new javax.swing.JLabel();
-        lblCodigoQuitar = new javax.swing.JLabel();
+        labelquitar = new javax.swing.JLabel();
+        labelcodigoquitar = new javax.swing.JLabel();
         txtquitar = new javax.swing.JTextField();
         botonquitar = new javax.swing.JButton();
 
-        lblCedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCedula.setText("Cedula de Cliente");
+        labelcedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcedula.setText("Cedula de Cliente");
 
-        lblNumero.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblNumero.setText("Número de Factura");
+        labelnumero.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnumero.setText("Número de Factura");
 
         txtnumerofactura.setEditable(false);
         txtnumerofactura.addActionListener(new java.awt.event.ActionListener() {
@@ -112,18 +152,18 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCodigo.setText("Codigo");
-        lblCodigo.setToolTipText("");
+        labelcodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigo.setText("Codigo");
+        labelcodigo.setToolTipText("");
 
-        lblNombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblNombre.setText("Nombre");
+        labelnombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnombre.setText("Nombre");
 
-        lblTelefono.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblTelefono.setText("Teléfono");
+        labeltelefono.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeltelefono.setText("Teléfono");
 
-        lblDireccion.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblDireccion.setText("Dirección");
+        labeldireccion.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeldireccion.setText("Dirección");
 
         txtcodigo.setEditable(false);
 
@@ -133,8 +173,8 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
 
         txtdireccion.setEditable(false);
 
-        lblFecha.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblFecha.setText("Fecha");
+        labelfecha.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelfecha.setText("Fecha");
 
         txtfecha.setEditable(false);
 
@@ -156,8 +196,8 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabladetalle);
 
-        lblSubtotal.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblSubtotal.setText("Subtotal");
+        labelsubtotal.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelsubtotal.setText("Subtotal");
 
         txtsubtotal.setEditable(false);
         txtsubtotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -176,14 +216,14 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        lblIva.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblIva.setText("Iva");
+        labeliva.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeliva.setText("Iva");
 
         txttotal.setEditable(false);
         txttotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
-        lblTotal.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblTotal.setText("Total");
+        labeltotal.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeltotal.setText("Total");
 
         botonactualizar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
         botonactualizar.setText("Actualizar");
@@ -201,11 +241,11 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCodigoProducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCodigoProducto.setText("Codigo de producto");
+        labelcodigoproducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigoproducto.setText("Codigo de producto");
 
-        lblCantidad.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCantidad.setText("Cantidad");
+        labelcantidad.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcantidad.setText("Cantidad");
 
         txtcantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,24 +261,24 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        botonbuscarproducto.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        botonbuscarproducto.setText("Buscar");
-        botonbuscarproducto.addActionListener(new java.awt.event.ActionListener() {
+        botonbuscar2.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonbuscar2.setText("Buscar");
+        botonbuscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonbuscarproductoActionPerformed(evt);
+                botonbuscar2ActionPerformed(evt);
             }
         });
 
-        lblNombreProducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblNombreProducto.setText("Nombre producto");
+        labelnombreproducto.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnombreproducto.setText("Nombre producto");
 
         txtNombreProducto.setEditable(false);
 
-        lblQuitar.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblQuitar.setText("Quitar Detalle");
+        labelquitar.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelquitar.setText("Quitar Detalle");
 
-        lblCodigoQuitar.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCodigoQuitar.setText("Codigo");
+        labelcodigoquitar.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigoquitar.setText("Codigo");
 
         txtquitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,8 +303,8 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNumero)
-                            .addComponent(lblCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelnumero)
+                            .addComponent(labelcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,16 +313,16 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblCodigo)
+                                .addComponent(labelcodigo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblFecha)
+                                    .addComponent(labelfecha)
                                     .addGap(18, 18, 18)
                                     .addComponent(txtfecha))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblNombre)
+                                    .addComponent(labelnombre)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,12 +331,12 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(botonbuscar)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblTelefono)
+                                        .addComponent(labeltelefono)
                                         .addGap(18, 18, 18)
                                         .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(lblDireccion)
+                                .addComponent(labeldireccion)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtdireccion)))
                         .addGap(24, 24, 24))
@@ -304,18 +344,18 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblQuitar)
+                                    .addComponent(labelquitar)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblCodigoQuitar)
+                                        .addComponent(labelcodigoquitar)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtquitar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(botonquitar)))
                                 .addGap(167, 167, 167)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblIva)
-                                    .addComponent(lblTotal))
+                                    .addComponent(labelsubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labeliva)
+                                    .addComponent(labeltotal))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(botonactualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,19 +366,19 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblCantidad)
+                                        .addComponent(labelcantidad)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblCodigoProducto)
+                                        .addComponent(labelcodigoproducto)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtcodigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(64, 64, 64)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(botonagregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(botonbuscarproducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(botonbuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(38, 38, 38)
-                                .addComponent(lblNombreProducto)
+                                .addComponent(labelnombreproducto)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtNombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
                         .addGap(19, 19, 19))))
@@ -348,45 +388,45 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNumero)
+                    .addComponent(labelnumero)
                     .addComponent(txtnumerofactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
+                    .addComponent(labelcedula)
                     .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonbuscar))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigo)
+                            .addComponent(labelcodigo)
                             .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombre)
+                            .addComponent(labelnombre)
                             .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTelefono))
+                        .addComponent(labeltelefono))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDireccion))))
+                            .addComponent(labeldireccion))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFecha)
+                    .addComponent(labelfecha)
                     .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoProducto)
+                    .addComponent(labelcodigoproducto)
                     .addComponent(txtcodigoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonbuscarproducto)
-                    .addComponent(lblNombreProducto)
+                    .addComponent(botonbuscar2)
+                    .addComponent(labelnombreproducto)
                     .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCantidad)
+                    .addComponent(labelcantidad)
                     .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonagregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -395,23 +435,23 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSubtotal)
+                            .addComponent(labelsubtotal)
                             .addComponent(txtsubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIva)
+                            .addComponent(labeliva)
                             .addComponent(txtiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(lblQuitar)
+                        .addComponent(labelquitar)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigoQuitar)
+                            .addComponent(labelcodigoquitar)
                             .addComponent(txtquitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botonquitar))))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotal)
+                    .addComponent(labeltotal)
                     .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(botonactualizar)
@@ -510,12 +550,12 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
         llenarDatos();
     }//GEN-LAST:event_botonagregarActionPerformed
 
-    private void botonbuscarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarproductoActionPerformed
+    private void botonbuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscar2ActionPerformed
         // TODO add your handling code here:
         int codigoProducto=Integer.parseInt(txtcodigoproducto.getText());
         producto = controladorProducto.read(codigoProducto);
         txtNombreProducto.setText(producto.getNombre());
-    }//GEN-LAST:event_botonbuscarproductoActionPerformed
+    }//GEN-LAST:event_botonbuscar2ActionPerformed
 
     private void txtquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquitarActionPerformed
         // TODO add your handling code here:
@@ -582,25 +622,25 @@ public class ModificarFactura extends javax.swing.JInternalFrame {
     private javax.swing.JButton botonactualizar;
     private javax.swing.JButton botonagregar;
     private javax.swing.JButton botonbuscar;
-    private javax.swing.JButton botonbuscarproducto;
+    private javax.swing.JButton botonbuscar2;
     private javax.swing.JButton botonquitar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCantidad;
-    private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblCodigoProducto;
-    private javax.swing.JLabel lblCodigoQuitar;
-    private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblIva;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombreProducto;
-    private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblQuitar;
-    private javax.swing.JLabel lblSubtotal;
-    private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel labelcantidad;
+    private javax.swing.JLabel labelcedula;
+    private javax.swing.JLabel labelcodigo;
+    private javax.swing.JLabel labelcodigoproducto;
+    private javax.swing.JLabel labelcodigoquitar;
+    private javax.swing.JLabel labeldireccion;
+    private javax.swing.JLabel labelfecha;
+    private javax.swing.JLabel labeliva;
+    private javax.swing.JLabel labelnombre;
+    private javax.swing.JLabel labelnombreproducto;
+    private javax.swing.JLabel labelnumero;
+    private javax.swing.JLabel labelquitar;
+    private javax.swing.JLabel labelsubtotal;
+    private javax.swing.JLabel labeltelefono;
+    private javax.swing.JLabel labeltotal;
     private javax.swing.JTable tabladetalle;
     private javax.swing.JTextField txtNombreProducto;
     private javax.swing.JTextField txtcantidad;

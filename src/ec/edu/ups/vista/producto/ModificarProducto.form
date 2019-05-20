@@ -47,21 +47,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="botonA" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonactualizar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="labela" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelcodigo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labeln" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelp" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labeld" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                              <Component id="labelnombre" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelprecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labeldetalle" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
@@ -78,7 +78,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="txtcodigo" min="-2" pref="92" max="-2" attributes="0"/>
                           <EmptySpace pref="43" max="32767" attributes="0"/>
-                          <Component id="botonB" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="botonbuscar" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -89,9 +89,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labela" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -102,24 +102,24 @@
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtxdetalle" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labeld" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labeldetalle" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="labeln" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelnombre" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="labelp" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelprecio" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
-                  <Component id="botonA" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonactualizar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labela">
+        <Component class="javax.swing.JLabel" name="labelcodigo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="2"/>
@@ -141,7 +141,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtprecio">
         </Component>
-        <Component class="javax.swing.JButton" name="botonA">
+        <Component class="javax.swing.JButton" name="botonactualizar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Sitka Subheading" size="18" style="2"/>
@@ -149,10 +149,10 @@
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonactualizarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="labeld">
+        <Component class="javax.swing.JLabel" name="labeldetalle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="2"/>
@@ -160,7 +160,7 @@
             <Property name="text" type="java.lang.String" value="Ingrese detalle"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labeln">
+        <Component class="javax.swing.JLabel" name="labelnombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="2"/>
@@ -168,7 +168,7 @@
             <Property name="text" type="java.lang.String" value="Ingrese un nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelp">
+        <Component class="javax.swing.JLabel" name="labelprecio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="18" style="2"/>
@@ -176,7 +176,7 @@
             <Property name="text" type="java.lang.String" value="Ingrese precio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="botonB">
+        <Component class="javax.swing.JButton" name="botonbuscar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Sitka Subheading" size="18" style="2"/>
@@ -184,7 +184,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonbuscarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

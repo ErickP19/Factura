@@ -7,8 +7,12 @@ package ec.edu.ups.vista.producto;
 
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.modelo.Producto;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -17,25 +21,44 @@ import javax.swing.table.DefaultTableModel;
 public class ListarProducto extends javax.swing.JInternalFrame {
 
          private ControladorProducto controladorProducto;
+         private ResourceBundle mensajes;
     /**
      * Creates new form ListarProducto
      */
-    public ListarProducto(ControladorProducto controladorProducto) {
+    public ListarProducto(ControladorProducto controladorProducto, ResourceBundle mensajes) {
         initComponents();
         this.controladorProducto = controladorProducto;
         llenarDatos();
+        cambiarIdioma(mensajes);
     }
     public void llenarDatos(){
         
-        DefaultTableModel modelo = (DefaultTableModel) lista.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaproducto.getModel();
         Set<Producto> lista = controladorProducto.getLista();
         for (Producto producto : lista) {
             Object[] datos = {producto.getCodigoProducto(),
                 producto.getNombre(),
                 producto.getPrecio(),
                 producto.getDetalle() };
-                modelo.addRow(datos);
+            modelo.addRow(datos);
         }
+        
+    }
+    
+    public void cambiarIdioma(ResourceBundle mensajes){
+        
+        JTableHeader tableHeader = tablaproducto.getTableHeader();
+        TableColumnModel tableColumnModel = tableHeader.getColumnModel();
+        TableColumn tableColumn;
+        tableColumn = tableColumnModel.getColumn(0);
+        tableColumn.setHeaderValue(mensajes.getString("producto.codigo"));
+        tableColumn = tableColumnModel.getColumn(1);
+        tableColumn.setHeaderValue(mensajes.getString("producto.nombre"));
+        tableColumn = tableColumnModel.getColumn(2);
+        tableColumn.setHeaderValue(mensajes.getString("producto.precio"));
+        tableColumn = tableColumnModel.getColumn(3);
+        tableColumn.setHeaderValue(mensajes.getString("producto.detalle"));
+        tableHeader.repaint();
         
     }
 
@@ -49,43 +72,31 @@ public class ListarProducto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        lista = new javax.swing.JTable();
+        tablaproducto = new javax.swing.JTable();
 
         setClosable(true);
 
-        lista.setModel(new javax.swing.table.DefaultTableModel(
+        tablaproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "CODIGO", "NOMBRE", "PRECIO"
+                "Codigo", "Nombre", "Precio", "Detalle"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(lista);
+        ));
+        jScrollPane1.setViewportView(tablaproducto);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,6 +105,6 @@ public class ListarProducto extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable lista;
+    private javax.swing.JTable tablaproducto;
     // End of variables declaration//GEN-END:variables
 }

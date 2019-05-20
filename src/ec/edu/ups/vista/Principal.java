@@ -121,8 +121,8 @@ public class Principal extends javax.swing.JFrame {
         listarproducto = new javax.swing.JMenuItem();
         menufactura = new javax.swing.JMenu();
         crearfactura = new javax.swing.JMenuItem();
-        modificarfactura = new javax.swing.JMenuItem();
         buscarfactura = new javax.swing.JMenuItem();
+        modificarfactura = new javax.swing.JMenuItem();
         eliminarfactura = new javax.swing.JMenuItem();
         listarfactura = new javax.swing.JMenuItem();
         menuidioma = new javax.swing.JMenu();
@@ -260,16 +260,6 @@ public class Principal extends javax.swing.JFrame {
         });
         menufactura.add(crearfactura);
 
-        modificarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        modificarfactura.setMnemonic('s');
-        modificarfactura.setText("Update");
-        modificarfactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarfacturaActionPerformed(evt);
-            }
-        });
-        menufactura.add(modificarfactura);
-
         buscarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         buscarfactura.setMnemonic('a');
         buscarfactura.setText("Read");
@@ -279,6 +269,16 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menufactura.add(buscarfactura);
+
+        modificarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        modificarfactura.setMnemonic('s');
+        modificarfactura.setText("Update");
+        modificarfactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarfacturaActionPerformed(evt);
+            }
+        });
+        menufactura.add(modificarfactura);
 
         eliminarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         eliminarfactura.setMnemonic('x');
@@ -383,37 +383,47 @@ public class Principal extends javax.swing.JFrame {
 
     private void crearproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearproductoActionPerformed
         // TODO add your handling code here:
-       CrearProducto l = new CrearProducto(controladorProducto);
-       l.setVisible(true);
-       desktopPane.add(l);
+       if (crearProducto== null || crearProducto.isVisible() == false) {
+            crearProducto = new CrearProducto(controladorProducto, mensajes);
+            crearProducto.setVisible(true);
+            desktopPane.add(crearProducto);
+        }
     }//GEN-LAST:event_crearproductoActionPerformed
 
     private void modificarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarproductoActionPerformed
         // TODO add your handling code here:
-        ModificarProducto mo = new ModificarProducto(controladorProducto);
-        mo.setVisible(true);
-        desktopPane.add(mo);
+       if (updateProducto== null || updateProducto.isVisible() == false) {
+            updateProducto = new ModificarProducto(controladorProducto, mensajes);
+            updateProducto.setVisible(true);
+            desktopPane.add(updateProducto);
+        }
     }//GEN-LAST:event_modificarproductoActionPerformed
 
     private void buscarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarproductoActionPerformed
         // TODO add your handling code here:
-        BuscarProducto b = new BuscarProducto(controladorProducto);
-        b.setVisible(true);
-        desktopPane.add(b);
+        if (readProducto== null || readProducto.isVisible() == false) {
+            readProducto = new BuscarProducto(controladorProducto, mensajes);
+            readProducto.setVisible(true);
+            desktopPane.add(readProducto);
+        }
     }//GEN-LAST:event_buscarproductoActionPerformed
 
     private void eliminarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarproductoActionPerformed
         // TODO add your handling code here:
-         EliminarProducto crear = new EliminarProducto(controladorProducto);
-        crear.setVisible(true);
-        desktopPane.add(crear);
+        if (deleteProducto== null || deleteProducto.isVisible() == false) {
+            deleteProducto = new EliminarProducto(controladorProducto, mensajes);
+            deleteProducto.setVisible(true);
+            desktopPane.add(deleteProducto);
+        }
     }//GEN-LAST:event_eliminarproductoActionPerformed
 
     private void listarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarproductoActionPerformed
         // TODO add your handling code here:
-        ListarProducto l = new ListarProducto(controladorProducto);
-        l.setVisible(true);
-        desktopPane.add(l);
+        if (listarProducto== null || listarProducto.isVisible() == false) {
+            listarProducto = new ListarProducto(controladorProducto,mensajes);
+            listarProducto.setVisible(true);
+            desktopPane.add(listarProducto);
+        }
     }//GEN-LAST:event_listarproductoActionPerformed
 
     private void inglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesActionPerformed
@@ -434,34 +444,50 @@ public class Principal extends javax.swing.JFrame {
 
     private void crearfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearfacturaActionPerformed
         // TODO add your handling code here:
-        CrearFactura1 l = new CrearFactura1(controladorFactura, controladorCliente, controladorFacturaDetalle,controladorProducto,mensajes);
-        l.setVisible(true);
-        desktopPane.add(l);
-        
-        
+       if (crearFactura == null || crearFactura.isVisible() == false) {
+            crearFactura = new CrearFactura1(controladorFactura, controladorCliente, controladorFacturaDetalle,controladorProducto, mensajes);
+            crearFactura.setVisible(true);
+            desktopPane.add(crearFactura);
+        } 
     }//GEN-LAST:event_crearfacturaActionPerformed
 
     private void modificarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarfacturaActionPerformed
         // TODO add your handling code here:
-        ModificarFactura l = new  ModificarFactura(controladorFactura, controladorProducto, controladorFacturaDetalle, controladorCliente, mensajes);
-        l.setVisible(true);
-        desktopPane.add(l);
-        
+       if (updateFactura== null || updateFactura.isVisible() == false) {
+            updateFactura = new ModificarFactura(controladorFactura, controladorProducto, controladorFacturaDetalle, controladorCliente, mensajes);
+            updateFactura.setVisible(true);
+            desktopPane.add(updateFactura);
+        }
     }//GEN-LAST:event_modificarfacturaActionPerformed
 
     private void buscarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarfacturaActionPerformed
         // TODO add your handling code here:
+        if (readFactura == null || readFactura.isVisible() == false) {
+            readFactura = new BuscarFactura(controladorFactura, mensajes);
+            readFactura.setVisible(true);
+            desktopPane.add(readFactura);
+        }
         
  
     }//GEN-LAST:event_buscarfacturaActionPerformed
 
     private void eliminarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfacturaActionPerformed
         // TODO add your handling code here:
+        if (deleteFactura== null || deleteFactura.isVisible() == false) {
+            deleteFactura = new EliminarFactura(controladorFactura, mensajes);
+            deleteFactura.setVisible(true);
+            desktopPane.add(deleteFactura);
+        }
         
     }//GEN-LAST:event_eliminarfacturaActionPerformed
 
     private void listarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarfacturaActionPerformed
         // TODO add your handling code here:
+         if (listarFacturas== null || listarFacturas.isVisible() == false) {
+            listarFacturas = new ListarFactura(controladorFactura, mensajes);
+            listarFacturas.setVisible(true);
+            desktopPane.add(listarFacturas);
+        }
     }//GEN-LAST:event_listarfacturaActionPerformed
     public void cambiaridioma(){
        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());

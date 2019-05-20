@@ -82,6 +82,8 @@ public class ListarFactura extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablafactura = new javax.swing.JTable();
 
+        setClosable(true);
+
         tablafactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
