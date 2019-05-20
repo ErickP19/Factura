@@ -14,9 +14,13 @@ import java.util.Set;
  * @author erics
  */
 public class ControladorFactura {
-    private Set<Factura> lista;
+     private Set<Factura> lista;
     private int numero;
 
+    public Set<Factura> getFactura(){
+        return lista;
+    }
+    
     public int getCodigo() {
         return numero;
     }
@@ -62,6 +66,8 @@ public class ControladorFactura {
             System.out.println(facturaCabecera.getNumeroFactura());
         }
     }
-    
-    
+
+    public Set<Factura> getLista() {
+        return lista;
+    }
 }

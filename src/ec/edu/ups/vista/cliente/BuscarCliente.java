@@ -7,6 +7,7 @@ package ec.edu.ups.vista.cliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.ResourceBundle;
 
 
 /**
@@ -16,16 +17,27 @@ import ec.edu.ups.modelo.Cliente;
 public class BuscarCliente extends javax.swing.JInternalFrame {
 
      private ControladorCliente controladorCliente;
+       private ResourceBundle mensajes;
     /**
      * Creates new form Read
      */
-    public BuscarCliente(ControladorCliente controladorCliente) {
+    public BuscarCliente(ControladorCliente controladorCliente, ResourceBundle mensajes) {
         initComponents();
         this.controladorCliente = controladorCliente;
+        this.mensajes = mensajes;
+        cambiarIdioma(mensajes);
     }
-
-    
-
+    public void cambiarIdioma(ResourceBundle mensajes){
+        
+        labelcedula.setText(mensajes.getString("cliente.cedula"));
+        labelnombre.setText(mensajes.getString("cliente.nombre"));
+        labelcodigo.setText(mensajes.getString("cliente.codigo"));
+        labeldireccion.setText(mensajes.getString("cliente.direccion"));
+        labeltelefono.setText(mensajes.getString("cliente.telefono"));
+        botonbuscar.setText(mensajes.getString("boton.buscar"));
+        btnCancelar.setText(mensajes.getString("boton.cancelar"));
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,16 +49,16 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         btnCancelar = new javax.swing.JButton();
-        lblCedula = new javax.swing.JLabel();
+        labelcedula = new javax.swing.JLabel();
         txtcedula = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
-        lblNombre = new javax.swing.JLabel();
+        botonbuscar = new javax.swing.JButton();
+        labelnombre = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        lblCodigo = new javax.swing.JLabel();
+        labelcodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
-        lblDireccion = new javax.swing.JLabel();
+        labeldireccion = new javax.swing.JLabel();
         txtdireccion = new javax.swing.JTextField();
-        lblTelefono = new javax.swing.JLabel();
+        labeltelefono = new javax.swing.JLabel();
         txttelefono = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
 
@@ -59,34 +71,34 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        lblCedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCedula.setText("Cedula");
+        labelcedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcedula.setText("Cedula");
 
-        btnBuscar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        botonbuscar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonbuscar.setText("Buscar");
+        botonbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                botonbuscarActionPerformed(evt);
             }
         });
 
-        lblNombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblNombre.setText("Nombre");
+        labelnombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnombre.setText("Nombre");
 
         txtnombre.setEditable(false);
 
-        lblCodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblCodigo.setText("Codigo");
+        labelcodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigo.setText("Codigo");
 
         txtcodigo.setEditable(false);
 
-        lblDireccion.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblDireccion.setText("Direccion");
+        labeldireccion.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeldireccion.setText("Direccion");
 
         txtdireccion.setEditable(false);
 
-        lblTelefono.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        lblTelefono.setText("Telefono");
+        labeltelefono.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeltelefono.setText("Telefono");
 
         txttelefono.setEditable(false);
 
@@ -102,26 +114,27 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnBuscar))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblDireccion)
-                            .addComponent(lblTelefono))
+                            .addComponent(labelnombre)
+                            .addComponent(labelcodigo)
+                            .addComponent(labeldireccion)
+                            .addComponent(labeltelefono))
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtcodigo)
                             .addComponent(txtdireccion)
                             .addComponent(txtnombre)
-                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelcedula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(botonbuscar)))
                 .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -133,34 +146,34 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
+                    .addComponent(labelcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
+                    .addComponent(botonbuscar))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre))
+                    .addComponent(labelnombre))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
+                    .addComponent(labelcodigo)
                     .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
+                    .addComponent(labeldireccion)
                     .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
+                    .addComponent(labeltelefono)
                     .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(cancelar)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void botonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarActionPerformed
         // TODO add your handling code here:
         String cedula = txtcedula.getText();
         Cliente cliente = controladorCliente.read1(cedula);
@@ -169,7 +182,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         txtdireccion.setText(cliente.getDireccion());
         txttelefono.setText(cliente.getTelefono());
 
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_botonbuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code he
@@ -183,17 +196,16 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         txttelefono.setText("");
     }//GEN-LAST:event_cancelarActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton botonbuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton cancelar;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel labelcedula;
+    private javax.swing.JLabel labelcodigo;
+    private javax.swing.JLabel labeldireccion;
+    private javax.swing.JLabel labelnombre;
+    private javax.swing.JLabel labeltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;

@@ -7,6 +7,7 @@ package ec.edu.ups.vista.cliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +20,24 @@ public class CrearCliente extends javax.swing.JInternalFrame {
      * Creates new form Crear
      */
     private ControladorCliente controladorCliente;
+    private ResourceBundle mensajes;
     
-    public CrearCliente(ControladorCliente ControladorCliente) {
+    public CrearCliente(ControladorCliente ControladorCliente, ResourceBundle mensajes) {
        initComponents();
        this.controladorCliente=ControladorCliente;
        txtcodigo.setText(Integer.toString(this.controladorCliente.getCodigo()));
+       this.mensajes = mensajes;
+       cambiarIdioma(mensajes);
+    }
+    public void cambiarIdioma(ResourceBundle mensajes){
+        
+        labelcodigo.setText(mensajes.getString("cliente.codigo"));
+        labelnombre.setText(mensajes.getString("cliente.nombre"));
+        labelcedula.setText(mensajes.getString("cliente.cedula"));
+        labeldireccion.setText(mensajes.getString("cliente.direccion"));
+        labeltelefono.setText(mensajes.getString("cliente.telefono"));
+        botonguardar.setText(mensajes.getString("boton.crear"));
+        
     }
 
     /**
@@ -36,18 +50,16 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelnombre = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         txtcedula = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelcedula = new javax.swing.JLabel();
+        labeldireccion = new javax.swing.JLabel();
         txtdireccion = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        labeltelefono = new javax.swing.JLabel();
         txttelefono = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        botonguardar = new javax.swing.JButton();
+        labelcodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
 
         setClosable(true);
@@ -55,13 +67,9 @@ public class CrearCliente extends javax.swing.JInternalFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 249, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Serif", 2, 48)); // NOI18N
-        jLabel1.setText("Crear Cliente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        labelnombre.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelnombre.setText("Nombre");
+        jPanel1.add(labelnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 249, -1, -1));
 
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,41 +79,32 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 255, 230, 31));
         jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 299, 230, 31));
 
-        jLabel3.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel3.setText("Cedula");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 299, -1, -1));
+        labelcedula.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcedula.setText("Cedula");
+        jPanel1.add(labelcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 299, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel4.setText("Direccion");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 349, -1, -1));
+        labeldireccion.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeldireccion.setText("Direccion");
+        jPanel1.add(labeldireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 349, -1, -1));
         jPanel1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 355, 230, 31));
 
-        jLabel5.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel5.setText("Telefono");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 404, -1, -1));
+        labeltelefono.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labeltelefono.setText("Telefono");
+        jPanel1.add(labeltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 404, -1, -1));
         jPanel1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 404, 230, 31));
 
-        jButton1.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonguardar.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
+        botonguardar.setText("Crear");
+        botonguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonguardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        jPanel1.add(botonguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Sitka Subheading", 2, 18)); // NOI18N
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
-        jLabel6.setText("Codigo");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 194, -1, -1));
+        labelcodigo.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
+        labelcodigo.setText("Codigo");
+        jPanel1.add(labelcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 194, -1, -1));
 
         txtcodigo.setEditable(false);
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -115,12 +114,12 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 200, 230, 31));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 710, 610));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -160, 640, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonguardarActionPerformed
         // TODO add your handling code here:
         Cliente cliente = new Cliente ();
         cliente.setNombre(txtnombre.getText());
@@ -134,7 +133,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         controladorCliente.create(cliente);
         txtcodigo.setText(Integer.toString(this.controladorCliente.getCodigo()));
         JOptionPane.showMessageDialog(this, "Cliente creado exitosamente", "Crear cliente", JOptionPane.OK_OPTION);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonguardarActionPerformed
 
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
@@ -144,22 +143,15 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodigoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton botonguardar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelcedula;
+    private javax.swing.JLabel labelcodigo;
+    private javax.swing.JLabel labeldireccion;
+    private javax.swing.JLabel labelnombre;
+    private javax.swing.JLabel labeltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;
