@@ -121,10 +121,7 @@ public class Principal extends javax.swing.JFrame {
         listarproducto = new javax.swing.JMenuItem();
         menufactura = new javax.swing.JMenu();
         crearfactura = new javax.swing.JMenuItem();
-        buscarfactura = new javax.swing.JMenuItem();
-        modificarfactura = new javax.swing.JMenuItem();
         eliminarfactura = new javax.swing.JMenuItem();
-        listarfactura = new javax.swing.JMenuItem();
         menuidioma = new javax.swing.JMenu();
         ingles = new javax.swing.JMenuItem();
         español = new javax.swing.JMenuItem();
@@ -260,26 +257,6 @@ public class Principal extends javax.swing.JFrame {
         });
         menufactura.add(crearfactura);
 
-        buscarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        buscarfactura.setMnemonic('a');
-        buscarfactura.setText("Read");
-        buscarfactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarfacturaActionPerformed(evt);
-            }
-        });
-        menufactura.add(buscarfactura);
-
-        modificarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        modificarfactura.setMnemonic('s');
-        modificarfactura.setText("Update");
-        modificarfactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarfacturaActionPerformed(evt);
-            }
-        });
-        menufactura.add(modificarfactura);
-
         eliminarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         eliminarfactura.setMnemonic('x');
         eliminarfactura.setText("Delete");
@@ -289,15 +266,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menufactura.add(eliminarfactura);
-
-        listarfactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        listarfactura.setText("List");
-        listarfactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarfacturaActionPerformed(evt);
-            }
-        });
-        menufactura.add(listarfactura);
 
         menuBar.add(menufactura);
 
@@ -451,26 +419,6 @@ public class Principal extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_crearfacturaActionPerformed
 
-    private void modificarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarfacturaActionPerformed
-        // TODO add your handling code here:
-       if (updateFactura== null || updateFactura.isVisible() == false) {
-            updateFactura = new ModificarFactura(controladorFactura, controladorProducto, controladorFacturaDetalle, controladorCliente, mensajes);
-            updateFactura.setVisible(true);
-            desktopPane.add(updateFactura);
-        }
-    }//GEN-LAST:event_modificarfacturaActionPerformed
-
-    private void buscarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarfacturaActionPerformed
-        // TODO add your handling code here:
-        if (readFactura == null || readFactura.isVisible() == false) {
-            readFactura = new BuscarFactura(controladorFactura, mensajes);
-            readFactura.setVisible(true);
-            desktopPane.add(readFactura);
-        }
-        
- 
-    }//GEN-LAST:event_buscarfacturaActionPerformed
-
     private void eliminarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfacturaActionPerformed
         // TODO add your handling code here:
         if (deleteFactura== null || deleteFactura.isVisible() == false) {
@@ -480,15 +428,6 @@ public class Principal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_eliminarfacturaActionPerformed
-
-    private void listarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarfacturaActionPerformed
-        // TODO add your handling code here:
-         if (listarFacturas== null || listarFacturas.isVisible() == false) {
-            listarFacturas = new ListarFactura(controladorFactura, mensajes);
-            listarFacturas.setVisible(true);
-            desktopPane.add(listarFacturas);
-        }
-    }//GEN-LAST:event_listarfacturaActionPerformed
     public void cambiaridioma(){
        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
         
@@ -511,7 +450,7 @@ public class Principal extends javax.swing.JFrame {
         menufactura.setText(mensajes.getString("menu.Factura"));
         
         crearfactura.setText(mensajes.getString("menu.item.crear"));
-        buscarfactura.setText(mensajes.getString("menu.item.buscar"));
+        //buscarfactura.setText(mensajes.getString("menu.item.buscar"));
         modificarproducto.setText(mensajes.getString("menu.item.modificar"));
         eliminarproducto.setText(mensajes.getString("menu.item.eliminar"));
         listarproducto.setText(mensajes.getString("menu.item.lista"));
@@ -519,6 +458,56 @@ public class Principal extends javax.swing.JFrame {
         menuidioma.setText(mensajes.getString("menu.idioma"));
         ingles.setText(mensajes.getString("menu.item.ingles"));
         español.setText(mensajes.getString("menu.item.espa"));
+        comprobar();
+    }
+    public void comprobar (){
+        if (crearCliente != null && crearCliente.isVisible()){
+            crearCliente.cambiarIdioma(mensajes);
+        }
+        if(readCliente != null && readCliente.isVisible()){
+            readCliente.cambiarIdioma(mensajes);
+        }
+        if(updateCliente != null && updateCliente.isVisible()){
+            updateCliente.cambiarIdioma(mensajes);
+        }
+        if(deleteCliente != null && deleteCliente.isVisible()){
+            deleteCliente.cambiarIdioma(mensajes);
+        }
+        if(listarClientes != null && listarClientes.isVisible()){
+            listarClientes.cambiarIdioma(mensajes);
+        }
+        if (crearProducto != null && crearProducto.isVisible()){
+            crearProducto.cambiarIdioma(mensajes);
+        }
+        if(readProducto != null && readProducto.isVisible()){
+            readProducto.cambiarIdioma(mensajes);
+        }
+        if(updateProducto != null && updateProducto.isVisible()){
+            updateProducto.cambiarIdioma(mensajes);
+        }
+        if(deleteProducto != null && deleteProducto.isVisible()){
+            deleteProducto.cambiarIdioma(mensajes);
+        }
+        if(listarProducto != null && listarProducto.isVisible()){
+            listarProducto.cambiarIdioma(mensajes);
+        }
+         if (crearFactura != null && crearFactura.isVisible()){
+            crearFactura.cambiarIdioma(mensajes);
+        }
+        if(readFactura != null && readFactura.isVisible()){
+            readFactura.cambiarIdioma(mensajes);
+        }
+        if(updateFactura != null && updateFactura.isVisible()){
+            updateFactura.cambiarIdioma(mensajes);
+        }
+        if(deleteFactura != null && deleteFactura.isVisible()){
+            deleteFactura.cambiarIdioma(mensajes);
+        }
+        if(listarFacturas != null && listarFacturas.isVisible()){
+            listarFacturas.cambiarIdioma(mensajes);
+        }
+        
+        
     }
    
     /**
@@ -558,7 +547,6 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem buscarcliente;
-    private javax.swing.JMenuItem buscarfactura;
     private javax.swing.JMenuItem buscarproducto;
     private javax.swing.JMenu clientemenu;
     private javax.swing.JMenuItem crearcliente;
@@ -575,14 +563,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem listarcliente;
-    private javax.swing.JMenuItem listarfactura;
     private javax.swing.JMenuItem listarproducto;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menufactura;
     private javax.swing.JMenu menuidioma;
     private javax.swing.JMenu menuproducto;
     private javax.swing.JMenuItem modificarcliente;
-    private javax.swing.JMenuItem modificarfactura;
     private javax.swing.JMenuItem modificarproducto;
     // End of variables declaration//GEN-END:variables
 
