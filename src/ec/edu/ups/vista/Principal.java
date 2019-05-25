@@ -16,11 +16,11 @@ import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
-import ec.edu.ups.vista.factura.BuscarFactura;
+
 import ec.edu.ups.vista.factura.CrearFactura1;
 import ec.edu.ups.vista.factura.EliminarFactura;
-import ec.edu.ups.vista.factura.ListarFactura;
-import ec.edu.ups.vista.factura.ModificarFactura;
+
+
 import ec.edu.ups.vista.producto.BuscarProducto;
 import ec.edu.ups.vista.producto.CrearProducto;
 import ec.edu.ups.vista.producto.EliminarProducto;
@@ -62,10 +62,8 @@ public class Principal extends javax.swing.JFrame {
     
      //Factura
     private CrearFactura1 crearFactura;
-    private BuscarFactura readFactura;
-    private ModificarFactura updateFactura;
     private EliminarFactura deleteFactura;
-    private ListarFactura listarFacturas;
+   
 
     
 
@@ -422,7 +420,7 @@ public class Principal extends javax.swing.JFrame {
     private void eliminarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfacturaActionPerformed
         // TODO add your handling code here:
         if (deleteFactura== null || deleteFactura.isVisible() == false) {
-            deleteFactura = new EliminarFactura(controladorFactura, mensajes);
+            deleteFactura = new EliminarFactura(controladorFactura, mensajes,controladorProducto);
             deleteFactura.setVisible(true);
             desktopPane.add(deleteFactura);
         }
@@ -494,20 +492,11 @@ public class Principal extends javax.swing.JFrame {
          if (crearFactura != null && crearFactura.isVisible()){
             crearFactura.cambiarIdioma(mensajes);
         }
-        if(readFactura != null && readFactura.isVisible()){
-            readFactura.cambiarIdioma(mensajes);
-        }
-        if(updateFactura != null && updateFactura.isVisible()){
-            updateFactura.cambiarIdioma(mensajes);
-        }
+       
         if(deleteFactura != null && deleteFactura.isVisible()){
             deleteFactura.cambiarIdioma(mensajes);
         }
-        if(listarFacturas != null && listarFacturas.isVisible()){
-            listarFacturas.cambiarIdioma(mensajes);
-        }
-        
-        
+    
     }
    
     /**
